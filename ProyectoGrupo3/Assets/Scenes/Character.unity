@@ -321,7 +321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241924187}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11380658, y: 0.13394383, z: -0.015486667, w: 0.98431057}
+  m_LocalRotation: {x: 0.11380658, y: 0.13394386, z: -0.01548667, w: 0.98431057}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1385,10 +1385,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd49f9458ea4a245b6f0ddc77158526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1642431073}
   cameraPlayer: {fileID: 81582621}
-  sneekySpeed: 2
-  runSpeed: 8
+  sneekySpeedMax: 2
+  runSpeedMax: 8
   turnTime: 0.1
+  acelerationInAnimation: 2
+  deacelerationInAnimation: 5
 --- !u!114 &1592628167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,6 +1422,11 @@ MonoBehaviour:
   m_DefaultActionMap: Exploration
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &1642431073 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95311200093912232, guid: 39d98a079e6aa9744afb74f16a271c9e, type: 3}
+  m_PrefabInstance: {fileID: 248227019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1643878401
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,12 +25,12 @@
                 },
                 {
                     "name": "Dance",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "4804dc96-8c7b-4ffb-818e-25f1c565cc04",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

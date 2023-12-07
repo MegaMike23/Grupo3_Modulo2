@@ -6,14 +6,19 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController characterController;
+    [SerializeField] private Animator animator;
     private PlayerInput playerInput;
     [SerializeField] private Transform cameraPlayer;        //Camara que mira al jugador
 
 
-   [SerializeField] private float sneekySpeed = 2.0f;        //Velocidad del personaje
-    [SerializeField] private float runSpeed = 8.0f;
+    [SerializeField] private float sneekySpeedMax = 2.0f;        //Velocidad del personaje
+    [SerializeField] private float runSpeedMax = 8.0f;
     [SerializeField] private float turnTime = 0.1f;     //Tiempo para girar de manera progresiva
     private float turnVelocity;                         //variable privatda para la velocidad del giro - no es necesario tocarla
+
+    private float velocityInAnimation = 0.0f;
+    private float acelerationInAnimation = 2.0f;
+    private float deacelerationInAnimation = 3.0f;
 
     private bool isStaticPos = false; //Para aquellas acciones que debemos mantenernos estaticos
 
@@ -32,17 +37,20 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 direction = new Vector3(movementInput.x, 0.0f, movementInput.y).normalized;
 
-        if (playerInput.actions["Dance"].WasPressedThisFrame())
+        /*
+        if (playerInput.actions["Dance"].IsPressed() && !isStaticPos)
         {
             Debug.Log("DANCE");
+            animator.SetBool("Dance", true);
             isStaticPos = true;
         }
 
         if (playerInput.actions["Dance"].WasReleasedThisFrame())
         {
             Debug.Log("FINISH DANCE");
+            animator.SetBool("Dance", false);
             isStaticPos = false;
-        }
+        }*/
 
         //CHARACTER CONTROLLER & MOVIMIENTO DEL JUGADOR
 
@@ -57,20 +65,45 @@ public class PlayerMovement : MonoBehaviour
 
             //Velocidad del personaje
             float characterSpeed;
+            
 
             if (playerInput.actions["Run"].IsPressed())
             {
                 Debug.Log("Running");
-                characterSpeed = runSpeed;
+
+                characterSpeed = runSpeedMax;
+
+                velocityInAnimation += acelerationInAnimation * Time.deltaTime;
+                velocityInAnimation = Mathf.Clamp(velocityInAnimation, 0.3f, 1.0f);
             }
             else
             {
                 Debug.Log("Sneaky");
-                characterSpeed = sneekySpeed;
+
+                characterSpeed = sneekySpeedMax;
+
+                if (velocityInAnimation > 0.3f)
+                {
+                    velocityInAnimation -= deacelerationInAnimation * Time.deltaTime;
+                    velocityInAnimation = Mathf.Clamp(velocityInAnimation, 0.0f, 1f);
+                }
+                else
+                {
+                    velocityInAnimation += acelerationInAnimation * Time.deltaTime;
+                    velocityInAnimation = Mathf.Clamp(velocityInAnimation, 0.0f, 0.3f);
+                }
             }
 
             characterController.Move(moveDirection * characterSpeed * Time.deltaTime);
+
         }
+        else //Si no hay movimiento desaceleramos animacion hasta Idle
+        {
+            velocityInAnimation -= deacelerationInAnimation * Time.deltaTime;
+            velocityInAnimation = Mathf.Clamp(velocityInAnimation, 0.0f, 1.0f);
+        }
+
+        animator.SetFloat("Speed", velocityInAnimation);
 
     }
 }
