@@ -321,7 +321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241924187}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11380658, y: 0.13394386, z: -0.01548667, w: 0.98431057}
+  m_LocalRotation: {x: 0.11380658, y: 0.13394383, z: -0.015486667, w: 0.98431057}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1351,12 +1351,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.45
+  m_Radius: 0.36
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.02, z: 0}
+  m_Center: {x: 0, y: 1.05, z: 0}
 --- !u!4 &1592628165
 Transform:
   m_ObjectHideFlags: 0
@@ -1390,8 +1390,6 @@ MonoBehaviour:
   sneekySpeedMax: 2
   runSpeedMax: 8
   turnTime: 0.1
-  acelerationInAnimation: 2
-  deacelerationInAnimation: 5
 --- !u!114 &1592628167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1542,7 +1540,7 @@ MonoBehaviour:
     m_Radius: 5
   - m_Height: 2.5
     m_Radius: 8
-  - m_Height: 0.5
+  - m_Height: 1
     m_Radius: 3
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
