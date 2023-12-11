@@ -30,7 +30,7 @@ public class HideShadow : MonoBehaviour
 
         foreach (Light l in lights)
         {
-            if ((l.type == LightType.Point))
+            if ((l.type == LightType.Point) || (l.type == LightType.Spot))
             {
                 float distance = Vector3.Distance(transform.position, l.transform.position);
                 Vector3 lDirection = l.transform.position - transform.position;
