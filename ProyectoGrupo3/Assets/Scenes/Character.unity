@@ -321,7 +321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241924187}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11380658, y: 0.13394386, z: -0.01548667, w: 0.98431057}
+  m_LocalRotation: {x: 0.11380658, y: 0.13394383, z: -0.015486667, w: 0.98431057}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1956,6 +1956,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a452b65b2deebc74b8062fabffd435f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshNinja: {fileID: 1849735972}
+  ninjaMat: {fileID: 0}
+  shadowMat: {fileID: 2100000, guid: a48541cd8db0b904cb13e271271c1083, type: 2}
 --- !u!95 &1642431073 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95311200093912232, guid: 39d98a079e6aa9744afb74f16a271c9e, type: 3}
@@ -2101,6 +2104,11 @@ Transform:
   - {fileID: 241924189}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1849735972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1347339666097536, guid: 39d98a079e6aa9744afb74f16a271c9e, type: 3}
+  m_PrefabInstance: {fileID: 248227019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867202218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,5 +2388,5 @@ SceneRoots:
   - {fileID: 415682234}
   - {fileID: 1279906481}
   - {fileID: 2014799858}
-  - {fileID: 1338001939}
   - {fileID: 1915272723}
+  - {fileID: 1338001939}
