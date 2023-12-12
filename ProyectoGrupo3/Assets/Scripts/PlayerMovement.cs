@@ -10,11 +10,16 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     [SerializeField] private Transform cameraPlayer;        //Camara que mira al jugador
 
-
-    [SerializeField] private float sneekySpeedMax = 2.0f;        //Velocidad del personaje
+    private float characterSpeed;                                    //Velocidad del personaje
+    [SerializeField] private float sneekySpeedMax = 2.0f;       
     [SerializeField] private float runSpeedMax = 8.0f;
     [SerializeField] private float turnTime = 0.1f;     //Tiempo para girar de manera progresiva
     private float turnVelocity;                         //variable privatda para la velocidad del giro - no es necesario tocarla
+    [SerializeField] private float gravity = 30;
+    private float fallVelocity;
+    private bool isJumping;
+    [SerializeField] private float jumpForce = 8f;
+    private Vector3 moveDirection;
 
     private float velocityInAnimation = 0.0f;
     private float acelerationInAnimation = 2.0f;
@@ -26,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        playerInput = GetComponent<PlayerInput>(); 
+        playerInput = GetComponent<PlayerInput>();
+        characterSpeed = sneekySpeedMax;
     }
 
     // Update is called once per frame
@@ -54,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         //CHARACTER CONTROLLER & MOVIMIENTO DEL JUGADOR
 
+
         if (direction.magnitude >= 0.01f && !isStaticPos)
         {
             //Rotación del personaje
@@ -61,10 +68,7 @@ public class PlayerMovement : MonoBehaviour
             float angleSmooth = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime); //Rotación smooth mediante angulo a rotar
             transform.rotation = Quaternion.Euler(0.0f, angleSmooth, 0.0f);
 
-            Vector3 moveDirection = Quaternion.Euler(0.0f, targetAngle, 0.0f) * Vector3.forward; //Movemos hacia delante según la vista de la camara (targetAngle y vector forward)
-
-            //Velocidad del personaje
-            float characterSpeed;
+            moveDirection = Quaternion.Euler(0.0f, targetAngle, 0.0f) * Vector3.forward; //Movemos hacia delante según la vista de la camara (targetAngle y vector forward)
             
 
             if (playerInput.actions["Run"].IsPressed())
@@ -94,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            characterController.Move(moveDirection * characterSpeed * Time.deltaTime);
+            //characterController.Move(moveDirection * characterSpeed * Time.deltaTime);
 
         }
         else //Si no hay movimiento desaceleramos animacion hasta Idle
@@ -104,6 +108,36 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animator.SetFloat("Speed", velocityInAnimation);
+
+
+        //Gravedad en personaje
+
+        if (characterController.isGrounded)
+        {
+            fallVelocity = -gravity * Time.deltaTime;
+            moveDirection.y = fallVelocity;
+        }
+        else
+        {
+            fallVelocity -= gravity * Time.deltaTime;
+            moveDirection.y = fallVelocity;
+        }
+
+        //Saltar
+
+        if (characterController.isGrounded)
+        {
+            isJumping = false;
+        }
+
+        if (characterController.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            isJumping = true;
+            fallVelocity = jumpForce;
+            moveDirection.y = fallVelocity;
+        }
+
+        characterController.Move(moveDirection * characterSpeed * Time.deltaTime);
 
     }
 }
