@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         //CHARACTER CONTROLLER & MOVIMIENTO DEL JUGADOR
 
+
         if (direction.magnitude >= 0.01f && !isStaticPos)
         {
             //Rotación del personaje
