@@ -466,7 +466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293797597}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14948651, y: 0.13329288, z: -0.020341948, w: 0.97952694}
+  m_LocalRotation: {x: 0.1494865, y: 0.13329288, z: -0.02034195, w: 0.97952694}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -733,8 +733,9 @@ GameObject:
   - component: {fileID: 486653334}
   - component: {fileID: 486653333}
   - component: {fileID: 486653332}
+  - component: {fileID: 486653336}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CubeInteractiveShadow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,12 +821,31 @@ Transform:
   m_GameObject: {fileID: 486653331}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.99, y: 0.31, z: 1.62}
+  m_LocalPosition: {x: 2.99, y: 0.48, z: 1.62}
   m_LocalScale: {x: 2.3081, y: 1.645306, z: 2.3081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &486653336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486653331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e5bd8ed01be424eb20ca9e1683cfb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadowTransform: {fileID: 864577769}
+  lightTransform: {fileID: 1249156358}
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  extrusionDirection: {x: 0, y: 0, z: 0}
+  shadowColliderUpdateTime: 0.08
 --- !u!1 &520230502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1031,50 @@ Transform:
   - {fileID: 295425906}
   m_Father: {fileID: 1643878403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &864577767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 864577769}
+  - component: {fileID: 864577768}
+  m_Layer: 0
+  m_Name: Shadow (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &864577768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864577767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421142f0313d54942b853fcdf0da4668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &864577769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864577767}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &901589884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1183,7 @@ GameObject:
   - component: {fileID: 1051218693}
   - component: {fileID: 1051218697}
   m_Layer: 6
-  m_Name: Wall
+  m_Name: WallInteractiveShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1445,7 +1509,7 @@ Transform:
   m_GameObject: {fileID: 1249156356}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3681644, y: -0.29346353, z: -0.023922, w: 0.8819081}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 7.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1826,6 +1890,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 486844, guid: 5a4e7db6b5d138a48ac28d3c085acb34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64016551302373840, guid: 5a4e7db6b5d138a48ac28d3c085acb34, type: 3}
+      propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2390,3 +2458,4 @@ SceneRoots:
   - {fileID: 2014799858}
   - {fileID: 1915272723}
   - {fileID: 1338001939}
+  - {fileID: 864577769}

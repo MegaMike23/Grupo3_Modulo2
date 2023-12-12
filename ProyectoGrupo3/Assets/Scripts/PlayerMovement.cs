@@ -105,6 +105,8 @@ public class PlayerMovement : MonoBehaviour
         {
             velocityInAnimation -= deacelerationInAnimation * Time.deltaTime;
             velocityInAnimation = Mathf.Clamp(velocityInAnimation, 0.0f, 1.0f);
+
+            moveDirection = Vector3.zero;
         }
 
         animator.SetFloat("Speed", velocityInAnimation);
