@@ -137,9 +137,13 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             fallVelocity = jumpForce;
             moveDirection.y = fallVelocity;
+
+            //Sonido de Saltar
+            AudioManager.Instance.PlaySfx("Jump");
         }
 
         characterController.Move(moveDirection * characterSpeed * Time.deltaTime);
+
 
     }
 }
