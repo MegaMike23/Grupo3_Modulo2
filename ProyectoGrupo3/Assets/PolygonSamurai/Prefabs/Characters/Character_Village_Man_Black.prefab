@@ -1941,6 +1941,7 @@ GameObject:
   - component: {fileID: 458396}
   - component: {fileID: 9581988}
   - component: {fileID: 3650395158655490991}
+  - component: {fileID: 5797947501927980525}
   m_Layer: 0
   m_Name: Character_Village_Man_Black
   m_TagString: Untagged
@@ -2004,12 +2005,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988895b00b94e1a479c518ac7e78ca57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangoAlerta: 0
+  rangoAlerta: 6.55
   capaJugador:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   jugador: {fileID: 0}
   velocidad: 0
+--- !u!65 &5797947501927980525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154470}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &156602
 GameObject:
   m_ObjectHideFlags: 0
