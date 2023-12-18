@@ -15,18 +15,7 @@ public class InvokeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Pausa o Continuar
-        if (Input.GetKeyDown((KeyCode)'p'))
-        {
-            if (Time.timeScale == 1)
-            {
-                Time.timeScale = 0;//Pausar el tiempo
-            }
-            else if (Time.timeScale == 0)
-            {
-                Time.timeScale = 1;//Continuar el tiempo
-            }
-        }
+        
 
     }
 
@@ -37,8 +26,5 @@ public class InvokeScript : MonoBehaviour
         Instantiate(stick, new Vector3(x,1,z), Quaternion.identity);
     }
 
-    private void Active(GameObject obj)
-    {
-
-    }
+    
 }
