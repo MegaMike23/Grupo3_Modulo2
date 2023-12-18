@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isStaticPos = false; //Para aquellas acciones que debemos mantenernos estaticos
 
+    public int pots = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -142,4 +143,5 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(moveDirection * characterSpeed * Time.deltaTime);
 
     }
+
 }
