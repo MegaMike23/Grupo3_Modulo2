@@ -44,12 +44,14 @@ public class EnemyMovement : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, rangoAlerta);
     }
 
+    //Cuando el enemigo colisione con el jugador
     private void OnCollisionEnter(Collision collision)
     {
         HeartManager controladorCora = collision.gameObject.GetComponent<HeartManager>();
         if (controladorCora != null)
         {
-            controladorCora.health -= 5;
+            controladorCora.currentHealth -= 5;//Reduce en 5 puntos la vida del jugador (Definida en HeartManager)
+            controladorCora.UpdateInterface();//Actualiza el Fill Amount del corazón en la interfaz
         }
 
         Debug.Log("Colisiona");
