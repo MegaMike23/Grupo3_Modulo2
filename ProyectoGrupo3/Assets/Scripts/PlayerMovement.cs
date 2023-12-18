@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isStaticPos = false; //Para aquellas acciones que debemos mantenernos estaticos
 
+    private bool isJumpingAnimation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,21 +131,56 @@ public class PlayerMovement : MonoBehaviour
 
         if (characterController.isGrounded)
         {
+
+            if (isJumping)
+            {
+                //Animación saltar aterrizaje si ha saltado previamente
+                StartCoroutine(LandAnimation());
+            }
+
             isJumping = false;
+
+            
+
         }
 
         if (characterController.isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             isJumping = true;
+            isJumpingAnimation = true;
             fallVelocity = jumpForce;
             moveDirection.y = fallVelocity;
 
             //Sonido de Saltar
-            AudioManager.Instance.PlaySfx("Jump");
+            //AudioManager.Instance.PlaySfx("Jump");
+
+            if (isJumpingAnimation)
+            {
+                Debug.Log("Entrar en salto");
+
+                //Animación saltar despegue
+                animator.SetBool("IsGrounded", false);
+                animator.SetBool("IsJumping", isJumping);
+                isJumpingAnimation = false;
+            }
+            
         }
 
         characterController.Move(moveDirection * characterSpeed * Time.deltaTime);
 
+
+    }
+
+    IEnumerator LandAnimation()
+    {
+        animator.SetBool("IsGrounded", true);
+        animator.SetBool("IsJumping", false);
+        Debug.Log("Aterrizar");
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(0.5f);
+
+        animator.SetBool("IsGrounded", false);
 
     }
 }
