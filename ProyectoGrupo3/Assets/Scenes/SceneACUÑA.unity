@@ -1210,6 +1210,10 @@ PrefabInstance:
       propertyPath: capaJugador.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 8576014588486519189, guid: 2fdb69d5b256cfa4e96c226f05a29874, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2043,58 +2047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1348567029
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1348567031}
-  - component: {fileID: 1348567030}
-  m_Layer: 0
-  m_Name: HeartManage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1348567030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348567029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fae8338869b78845bbd8a3c0edd48b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hearts:
-  - {fileID: 577359702}
-  - {fileID: 198717113}
-  - {fileID: 1613511258}
-  - {fileID: 42075224}
-  - {fileID: 1440712956}
-  jugadorPosicion: {fileID: 1592628165}
-  enemigoPosicion: {fileID: 2104722174}
---- !u!4 &1348567031
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348567029}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 629.7103, y: 243.65352, z: -10.242279}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1376455420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2438,6 +2390,7 @@ GameObject:
   - component: {fileID: 1592628166}
   - component: {fileID: 1592628167}
   - component: {fileID: 1592628168}
+  - component: {fileID: 1592628169}
   m_Layer: 7
   m_Name: NinjaCharacter
   m_TagString: Player
@@ -2551,6 +2504,19 @@ MonoBehaviour:
   meshNinja: {fileID: 1849735972}
   ninjaMat: {fileID: 0}
   shadowMat: {fileID: 2100000, guid: a48541cd8db0b904cb13e271271c1083, type: 2}
+--- !u!114 &1592628169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592628163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fae8338869b78845bbd8a3c0edd48b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1613511258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,11 +2815,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1347339666097536, guid: 39d98a079e6aa9744afb74f16a271c9e, type: 3}
   m_PrefabInstance: {fileID: 248227019}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2104722174 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 411014, guid: 2fdb69d5b256cfa4e96c226f05a29874, type: 3}
-  m_PrefabInstance: {fileID: 1194227280}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2871,4 +2832,3 @@ SceneRoots:
   - {fileID: 1534718247}
   - {fileID: 821721897}
   - {fileID: 305608583}
-  - {fileID: 1348567031}

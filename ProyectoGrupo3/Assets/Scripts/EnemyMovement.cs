@@ -46,9 +46,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        HeartManager controladorCora = collision.gameObject.GetComponent<HeartManager>();
+        if (controladorCora != null)
         {
-            HeartManager.Instance.LoseLife();
+            controladorCora.health -= 5;
         }
+
+        Debug.Log("Colisiona");
     }
 }
