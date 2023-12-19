@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -68,7 +69,9 @@ public class GameManager : MonoBehaviour
     public void AddPot()
     {
         pots++;
+        SavePots(pots);
         OnChangeAddPot?.Invoke(this, EventArgs.Empty); //Lanza llamada de Evento para quen quiera recibirla que se sume un pot
+        
     }
 
     public int GetPot()
@@ -83,7 +86,34 @@ public class GameManager : MonoBehaviour
         if (lives < 0)
         {
             lives = 0;
-        }
+            SceneManager.LoadScene("INTRO");
+            SaveLives(3);
             OnChangeLives?.Invoke(this, lives);
+        }
+        else
+        {
+            SaveLives(lives);
+            SceneManager.LoadScene("CHIBIGAME");
+        }
+            
+    }
+
+    public void SaveLives(int lives) 
+    {
+        PlayerPrefs.SetInt("Lives",lives);
+    }
+    public void SavePots(int pots)
+    {
+        PlayerPrefs.SetInt("Pots", pots);
+    }
+    public int LoadLive()
+    {
+        int numlives = PlayerPrefs.GetInt("Lives",3);
+        return numlives;
+    }
+    public int LoadPots()
+    {
+        int numpots = PlayerPrefs.GetInt("Pots");
+        return numpots;
     }
 }

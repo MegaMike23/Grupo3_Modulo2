@@ -20,7 +20,9 @@ public class UIController : MonoBehaviour
             GameManager.Instance.OnPausePressed += GameManager_OnPausePressed;
         }
 
-        HeartUIUpdate(heartSprites.Length);
+        int corazonesactivos = GameManager.Instance.LoadLive();
+        Debug.Log(corazonesactivos);
+        HeartUIUpdate(corazonesactivos);
     }
 
     private void GameManager_OnPausePressed(object sender, bool e)
@@ -33,6 +35,7 @@ public class UIController : MonoBehaviour
         for (int i = 0; i < heartSprites.Length; i++)
         {
             heartSprites[i].enabled = false;
+
         }
 
         for (int i = 0; i < numberHearts; i++)
