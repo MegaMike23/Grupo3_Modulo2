@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
 
     public EventHandler<bool> OnPausePressed;
 
-
-
     public static GameManager Instance;
 
     private void Awake()
@@ -36,6 +34,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int livesLoad = LoadLive();
+        Debug.Log("DES DEL GAME MANAGER, LAS VIDAS SON: " + livesLoad);
+
         if (AudioManager.Instance == null)
         {
             Debug.Log("No hay INSTANCE de audio manager previamente creado!");
@@ -81,8 +82,8 @@ public class GameManager : MonoBehaviour
 
     public void ChangeLives(int numberLessLives)
     {
-       
         lives -= numberLessLives;
+
         if (lives < 0)
         {
             lives = 0;
@@ -98,9 +99,14 @@ public class GameManager : MonoBehaviour
             
     }
 
-    public void SaveLives(int lives) 
+    public void SaveLives(int _lives) 
     {
-        PlayerPrefs.SetInt("Lives",lives);
+        if (PlayerPrefs.HasKey("Lives"))
+        {
+            Debug.Log("HE ENTRADO CABRON!");
+            PlayerPrefs.DeleteKey("Lives");
+        }
+        PlayerPrefs.SetInt("Lives", _lives);
     }
     public void SavePots(int pots)
     {
@@ -108,7 +114,7 @@ public class GameManager : MonoBehaviour
     }
     public int LoadLive()
     {
-        int numlives = PlayerPrefs.GetInt("Lives",3);
+        int numlives = PlayerPrefs.GetInt("Lives", 3);
         return numlives;
     }
     public int LoadPots()
