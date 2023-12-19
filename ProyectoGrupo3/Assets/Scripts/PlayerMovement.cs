@@ -152,7 +152,8 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y = fallVelocity;
 
             //Sonido de Saltar
-            //AudioManager.Instance.PlaySfx("Jump");
+            if(AudioManager.Instance !=null)
+            AudioManager.Instance.PlaySfx("Jump");
 
             if (isJumpingAnimation)
             {

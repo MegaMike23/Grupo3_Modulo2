@@ -1668,6 +1668,7 @@ MonoBehaviour:
   sfxSlider: {fileID: 1448127340}
   textNumberPots: {fileID: 0}
   heartSprites: []
+  cuadroPausa: {fileID: 0}
 --- !u!114 &588373473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2254,8 +2255,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 672823401}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 588373472}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: ToggleSfx
         m_Mode: 1
         m_Arguments:
@@ -4140,8 +4141,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 672823401}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 588373472}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: ToggleMusic
         m_Mode: 1
         m_Arguments:
