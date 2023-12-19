@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     private int pots = 0;
 
-    private int lives = 3;
+    private int lives;
 
     public EventHandler OnChangeAddPot;
 
@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        lives = LoadLive();
     }
 
     // Start is called before the first frame update
@@ -70,7 +72,6 @@ public class GameManager : MonoBehaviour
     public void AddPot()
     {
         pots++;
-        SavePots(pots);
         OnChangeAddPot?.Invoke(this, EventArgs.Empty); //Lanza llamada de Evento para quen quiera recibirla que se sume un pot
         
     }
@@ -89,37 +90,23 @@ public class GameManager : MonoBehaviour
             lives = 0;
             SceneManager.LoadScene("INTRO");
             SaveLives(3);
-            OnChangeLives?.Invoke(this, lives);
         }
         else
         {
             SaveLives(lives);
             SceneManager.LoadScene("CHIBIGAME");
         }
-            
+        OnChangeLives?.Invoke(this, lives);
     }
 
     public void SaveLives(int _lives) 
     {
-        if (PlayerPrefs.HasKey("Lives"))
-        {
-            Debug.Log("HE ENTRADO CABRON!");
-            PlayerPrefs.DeleteKey("Lives");
-        }
         PlayerPrefs.SetInt("Lives", _lives);
-    }
-    public void SavePots(int pots)
-    {
-        PlayerPrefs.SetInt("Pots", pots);
     }
     public int LoadLive()
     {
         int numlives = PlayerPrefs.GetInt("Lives", 3);
         return numlives;
     }
-    public int LoadPots()
-    {
-        int numpots = PlayerPrefs.GetInt("Pots");
-        return numpots;
-    }
+    
 }
