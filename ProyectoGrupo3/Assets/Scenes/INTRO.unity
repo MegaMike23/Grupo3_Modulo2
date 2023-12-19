@@ -1562,7 +1562,7 @@ MonoBehaviour:
         Owner: {fileID: 576907686}
         DebugActive: 0
         LoadingSceneName: MMAdditiveLoadingScreen_Ninja
-        DestinationSceneName: Character
+        DestinationSceneName: GAME
         LoadingMode: 2
         Priority: 4
         InterpolateProgress: 1
@@ -1666,6 +1666,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSlider: {fileID: 1899397971}
   sfxSlider: {fileID: 1448127340}
+  textNumberPots: {fileID: 0}
+  heartSprites: []
 --- !u!114 &588373473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2412,7 +2414,6 @@ Transform:
   - {fileID: 1809606976}
   - {fileID: 254408017}
   - {fileID: 1265981405}
-  - {fileID: 1427852251}
   - {fileID: 1836133399}
   - {fileID: 1900461010}
   - {fileID: 226651732}
@@ -3011,76 +3012,6 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
---- !u!1001 &1427852250
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1174350959}
-    m_Modifications:
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -36.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -27
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.96845555
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.24918634
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -28.859
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8808043109761419762, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_Name
-      value: JapanHouse (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8912250406818878221, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8912250406818878221, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
---- !u!4 &1427852251 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8209603538325747010, guid: 1c9c3fadd14236640a402e1ae39c5704, type: 3}
-  m_PrefabInstance: {fileID: 1427852250}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1448127339
 GameObject:
   m_ObjectHideFlags: 0

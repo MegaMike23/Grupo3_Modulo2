@@ -7,14 +7,14 @@ public class EnemyMovement : MonoBehaviour
 {
     public float rangoAlerta;//Rango de detección
     public LayerMask capaJugador;//Capa que detecta al jugador
-    public Transform jugador;//Posición del jugador
+    private Transform jugador;//Posición del jugador
     public float velocidad;//Velocidad de movimiento del enemigo
     bool estarAlerta;//Detecta si el jugador entró en el rango de detección
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        jugador = GameObject.FindGameObjectsWithTag("Player")[0].transform;
     }
 
     // Update is called once per frame
@@ -47,11 +47,10 @@ public class EnemyMovement : MonoBehaviour
     //Cuando el enemigo colisione con el jugador
     private void OnCollisionEnter(Collision collision)
     {
-        HeartManager controladorCora = collision.gameObject.GetComponent<HeartManager>();
-        if (controladorCora != null)
+        PlayerMovement player = collision.gameObject.GetComponent<PlayerMovement>();
+        if (player != null)
         {
-            controladorCora.currentHealth -= 5;//Reduce en 5 puntos la vida del jugador (Definida en HeartManager)
-            controladorCora.UpdateInterface();//Actualiza el Fill Amount del corazón en la interfaz
+            GameManager.Instance.ChangeLives(1); //Actualiza el Fill Amount del corazón en la interfaz
         }
 
         Debug.Log("Colisiona");

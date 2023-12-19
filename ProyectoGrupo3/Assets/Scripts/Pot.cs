@@ -12,15 +12,15 @@ public class Pot : MonoBehaviour
 
         Debug.Log("Colision con " + other.gameObject.name);
 
-        if (ninjaCharacter != null) 
+        if (ninjaCharacter != null && GameManager.Instance != null)
         {
-            ninjaCharacter.pots += num;
+            GameManager.Instance.AddPot(); //Activamos funcion en el game manager
             Destroy(gameObject);
         }
 
-        if(ninjaCharacter.pots == 4) 
+        if (GameManager.Instance != null && GameManager.Instance.GetPot() == 3)
         {
-            SceneManager.LoadScene("Object");
+            SceneManager.LoadScene("INTRO");
         }
     }
 }

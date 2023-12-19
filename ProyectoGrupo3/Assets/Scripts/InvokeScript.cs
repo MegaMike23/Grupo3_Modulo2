@@ -23,7 +23,7 @@ public class InvokeScript : MonoBehaviour
     {
         float x = Random.Range(-4.0f,16.0f);
         float z = Random.Range(-4.0f,16.0f);
-        Instantiate(stick, new Vector3(x,1,z), Quaternion.identity);
+        //Instantiate(stick, new Vector3(x,1,z), Quaternion.identity);
     }
 
     

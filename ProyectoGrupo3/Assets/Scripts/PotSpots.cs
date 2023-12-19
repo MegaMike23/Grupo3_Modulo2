@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class PotSpots : MonoBehaviour
 {
+    [SerializeField] private Transform[] points; 
     public GameObject pots;
 
     void Start()
     {
-        Vector3 pos1 = new Vector3(-1, 1, -6);
-        Vector3 pos2 = new Vector3(4, 1, -7);
-        Vector3 pos3 = new Vector3(4, 1, -2);
-
-        Instantiate(pots, pos1, Quaternion.identity);
-        Instantiate(pots, pos2, Quaternion.identity);
-        Instantiate(pots, pos3, Quaternion.identity);
+        for (int i = 0; i < points.Length; i++)
+        {
+            Instantiate(pots, points[i].position, Quaternion.identity);
+        }
     }
     
 }
