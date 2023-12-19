@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -86,11 +87,13 @@ public class GameManager : MonoBehaviour
         if (lives < 0)
         {
             lives = 0;
+            SceneManager.LoadScene("INTRO");
             SaveLives(3);
         }
         else
         {
             SaveLives(lives);
+            SceneManager.LoadScene("GAME");
         }
 
         OnChangeLives?.Invoke(this, lives);
