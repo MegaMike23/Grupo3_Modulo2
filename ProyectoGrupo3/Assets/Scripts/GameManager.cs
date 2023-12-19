@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public EventHandler<bool> OnPausePressed;
 
+
+
     public static GameManager Instance;
 
     private void Awake()
@@ -30,15 +32,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        lives = LoadLive();
+        lives = LoadLives();
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        int livesLoad = LoadLive();
-        Debug.Log("DES DEL GAME MANAGER, LAS VIDAS SON: " + livesLoad);
-
         if (AudioManager.Instance == null)
         {
             Debug.Log("No hay INSTANCE de audio manager previamente creado!");
@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviour
     {
         pots++;
         OnChangeAddPot?.Invoke(this, EventArgs.Empty); //Lanza llamada de Evento para quen quiera recibirla que se sume un pot
-        
     }
 
     public int GetPot()
@@ -83,8 +82,8 @@ public class GameManager : MonoBehaviour
 
     public void ChangeLives(int numberLessLives)
     {
+       
         lives -= numberLessLives;
-
         if (lives < 0)
         {
             lives = 0;
@@ -94,19 +93,24 @@ public class GameManager : MonoBehaviour
         else
         {
             SaveLives(lives);
-            SceneManager.LoadScene("CHIBIGAME");
+            SceneManager.LoadScene("GAME");
         }
+
         OnChangeLives?.Invoke(this, lives);
     }
 
-    public void SaveLives(int _lives) 
+    private void SaveLives(int _lives)
     {
         PlayerPrefs.SetInt("Lives", _lives);
     }
-    public int LoadLive()
+
+    private int LoadLives()
     {
-        int numlives = PlayerPrefs.GetInt("Lives", 3);
-        return numlives;
+        return PlayerPrefs.GetInt("Lives", 3);
     }
-    
+
+    public int GetLives()
+    {
+        return lives;
+    }
 }
