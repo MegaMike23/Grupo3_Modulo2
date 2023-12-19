@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     private int pots = 0;
 
-    private int lives = 3;
+    private int lives;
 
     public EventHandler OnChangeAddPot;
 
@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        lives = LoadLives();
+
     }
 
     // Start is called before the first frame update
@@ -83,7 +86,28 @@ public class GameManager : MonoBehaviour
         if (lives < 0)
         {
             lives = 0;
+            SaveLives(3);
         }
-            OnChangeLives?.Invoke(this, lives);
+        else
+        {
+            SaveLives(lives);
+        }
+
+        OnChangeLives?.Invoke(this, lives);
+    }
+
+    private void SaveLives(int _lives)
+    {
+        PlayerPrefs.SetInt("Lives", _lives);
+    }
+
+    private int LoadLives()
+    {
+        return PlayerPrefs.GetInt("Lives", 3);
+    }
+
+    public int GetLives()
+    {
+        return lives;
     }
 }

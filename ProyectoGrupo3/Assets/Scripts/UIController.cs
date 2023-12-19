@@ -20,7 +20,8 @@ public class UIController : MonoBehaviour
             GameManager.Instance.OnPausePressed += GameManager_OnPausePressed;
         }
 
-        HeartUIUpdate(heartSprites.Length);
+        //HeartUIUpdate(heartSprites.Length);
+        HeartUIUpdate(GameManager.Instance.GetLives());
     }
 
     private void GameManager_OnPausePressed(object sender, bool e)
