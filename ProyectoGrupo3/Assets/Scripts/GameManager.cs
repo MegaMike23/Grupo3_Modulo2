@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //PlayerPrefs.DeleteAll(); Funcion que nos permite borrar todas las keys y values
+
         lives = LoadLives();
 
     }

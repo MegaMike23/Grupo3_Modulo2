@@ -16,6 +16,15 @@ public class CameraSystem : MonoBehaviour
     [SerializeField] private float FOVMin = 10;
     private float targetFOV;
 
+    private Vector3 followOffset;
+    [SerializeField] private float followOffsetMinY = 1f;
+    [SerializeField] private float followOffsetMaxY = 20f;
+
+    private void Awake()
+    {
+        followOffset = virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,17 +81,29 @@ public class CameraSystem : MonoBehaviour
 
     private void HandleCameraZoom()
     {
+        float zoomAmount = 5f;
+
         if(Input.mouseScrollDelta.y > 0)
         {
-            targetFOV -= 5;
+            targetFOV -= zoomAmount;
+            followOffset.y -= zoomAmount;
         }
         if (Input.mouseScrollDelta.y < 0)
         {
-            targetFOV += 5;
+            targetFOV += zoomAmount;
+            followOffset.y += zoomAmount;
         }
 
         targetFOV = Mathf.Clamp(targetFOV, FOVMin, FOVMax);
+        followOffset.y = Mathf.Clamp(followOffset.y, followOffsetMinY, followOffsetMaxY);
 
-       virtualCamera.m_Lens.FieldOfView = targetFOV;
+        
+        float zoomSpeed = 10f;
+
+        virtualCamera.m_Lens.FieldOfView = //targetFOV;
+            Mathf.Lerp(virtualCamera.m_Lens.FieldOfView, targetFOV, Time.deltaTime * zoomSpeed);
+
+        virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset =
+            Vector3.Lerp(virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset, followOffset, Time.deltaTime*zoomSpeed);
     }
 }
