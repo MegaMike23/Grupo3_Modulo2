@@ -420,7 +420,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9811321, g: 0.55227244, b: 0.55227244, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -865,7 +865,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0.8
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -948,7 +948,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 1.5
       mode: 0
       spread: 0
       speed:
@@ -1184,7 +1184,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.7190075
+          value: 0.18457429
           inSlope: 2
           outSlope: 2
           tangentMode: 0
@@ -1192,23 +1192,23 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.539204
-          value: 0.48712176
-          inSlope: 0.640639
-          outSlope: 0.640639
+          time: 0.24756148
+          value: 0.103867054
+          inSlope: 0.24847026
+          outSlope: 0.24847026
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
-          inSlope: 0
-          outSlope: 0
+          value: 0.47058886
+          inSlope: 0.640639
+          outSlope: 0.640639
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0
-          outWeight: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -1697,7 +1697,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -1807,7 +1807,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2619,7 +2619,7 @@ ParticleSystem:
       m_Bits: 4294967295
     influenceList: []
   ClampVelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2836,7 +2836,7 @@ ParticleSystem:
     inWorldSpace: 0
     multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 1
-    dampen: 0
+    dampen: 0.1
     drag:
       serializedVersion: 2
       minMaxState: 0
@@ -2891,11 +2891,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 0
+    enabled: 1
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3757,7 +3757,7 @@ ParticleSystem:
     separateAxes: 0
     range: {x: 0, y: 1}
   ColorBySpeedModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -3765,7 +3765,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -3790,7 +3790,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -6008,18 +6008,18 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.6804409
-          inSlope: -0.07261269
-          outSlope: -0.07261269
+          value: 0.818182
+          inSlope: -0.3891599
+          outSlope: -0.3891599
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.5754332
-          value: 0.63865715
-          inSlope: -0.645682
-          outSlope: -0.645682
+          time: 0.74968857
+          value: 0.5284582
+          inSlope: -1.0080513
+          outSlope: -1.0080513
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -6027,8 +6027,8 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0.12121582
-          inSlope: -1.2187513
-          outSlope: -1.2187513
+          inSlope: -1.6269426
+          outSlope: -1.6269426
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -9867,7 +9867,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -9997,6 +9997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1472963899}
   - component: {fileID: 1472963898}
+  - component: {fileID: 1472963900}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -10081,6 +10082,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 52.21, y: -116.76, z: 75.8}
+--- !u!114 &1472963900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472963897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!1001 &1493481530
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 165386, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_Name
+      value: Character_Geisha_Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 459.26047
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.000022411346
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 549.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430768, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7831346d7491c004eac18e6266c5cb79, type: 3}
 --- !u!1 &1714806132
 GameObject:
   m_ObjectHideFlags: 0
@@ -14928,3 +15009,4 @@ SceneRoots:
   - {fileID: 1472963899}
   - {fileID: 1117872469}
   - {fileID: 430883098}
+  - {fileID: 1493481530}
