@@ -7,8 +7,9 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     private NavMeshAgent agent;
-
     private StateMachineFlexible stateMachineEnemy;
+
+    public Animator animator;
     public List<Transform> targetsPatrol;
 
     public GameObject player;
@@ -27,14 +28,17 @@ public class Enemy : MonoBehaviour
         stateMachineEnemy.actualState = patrol;
         patrol.targetsPatrol = targetsPatrol;
         patrol.character = gameObject;
+        patrol.animator = animator; 
 
         FollowState follow = new FollowState();
         follow.agent = agent;
         follow.player = player;
+        follow.animator = animator;
 
         AttackState attack = new AttackState();
         attack.player = player;
         attack.character = gameObject;
+        attack.animator = animator;
 
         LessDistanceCondition conditionLessDistance = new LessDistanceCondition();
         conditionLessDistance.character = gameObject;

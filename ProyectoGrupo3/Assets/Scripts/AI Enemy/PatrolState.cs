@@ -12,6 +12,8 @@ public class PatrolState : State
     private NavMeshAgent agent;
     public GameObject character;
 
+    public Animator animator;
+
     public override void DoAction()
     {
         if (agent == null)
@@ -29,6 +31,9 @@ public class PatrolState : State
         }
 
         agent.SetDestination(targetsPatrol[indexNextPoint].position);
+        
+        animator.SetBool("Follow", false);
+        animator.SetBool("Patrol", true);
 
     }
 }
