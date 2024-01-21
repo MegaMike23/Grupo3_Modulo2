@@ -6,18 +6,22 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    NavMeshAgent agent;
+    private NavMeshAgent agent;
 
-    public StateMachineFlexible stateMachineEnemy;
+    private StateMachineFlexible stateMachineEnemy;
     public List<Transform> targetsPatrol;
 
     public GameObject player;
+    public float minDistancePlayer;
+
+    public bool isAttacking = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         stateMachineEnemy = GetComponent<StateMachineFlexible>();
+        player = GameObject.FindWithTag("Player");
 
         PatrolState patrol = new PatrolState();
         stateMachineEnemy.actualState = patrol;
@@ -28,14 +32,16 @@ public class Enemy : MonoBehaviour
         follow.agent = agent;
         follow.player = player;
 
-        LessDistancePlayerCondition conditionLessDistance = new LessDistancePlayerCondition();
+        LessDistanceCondition conditionLessDistance = new LessDistanceCondition();
         conditionLessDistance.character = gameObject;
         conditionLessDistance.player = player;
+        conditionLessDistance.minDistancePlayer = minDistancePlayer;
 
-        LessDistancePlayerCondition conditionMoreDistance = new LessDistancePlayerCondition();
+        LessDistanceCondition conditionMoreDistance = new LessDistanceCondition();
         conditionMoreDistance.inverted = true;
         conditionMoreDistance.character = gameObject;
         conditionMoreDistance.player = player;
+        conditionMoreDistance.minDistancePlayer = minDistancePlayer;
 
         Transition patrolToFollow = new Transition();
         patrolToFollow.condition = conditionLessDistance;
@@ -46,7 +52,7 @@ public class Enemy : MonoBehaviour
         followToPatrol.destinationState = patrol;
 
         patrol.AddTransition(patrolToFollow);
-        follow.AddTransition(followToPatrol);*/
+        follow.AddTransition(followToPatrol);
     }
 
 }
