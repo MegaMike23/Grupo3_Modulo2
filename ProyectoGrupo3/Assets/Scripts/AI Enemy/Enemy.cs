@@ -32,6 +32,10 @@ public class Enemy : MonoBehaviour
         follow.agent = agent;
         follow.player = player;
 
+        AttackState attack = new AttackState();
+        attack.player = player;
+        attack.character = gameObject;
+
         LessDistanceCondition conditionLessDistance = new LessDistanceCondition();
         conditionLessDistance.character = gameObject;
         conditionLessDistance.player = player;
@@ -43,6 +47,15 @@ public class Enemy : MonoBehaviour
         conditionMoreDistance.player = player;
         conditionMoreDistance.minDistancePlayer = minDistancePlayer;
 
+        CanAttackCondition conditionCanAttack = new CanAttackCondition();
+        conditionCanAttack.character = gameObject;
+        conditionCanAttack.player = player;
+
+        CanAttackCondition finishConditionCanAttack = new CanAttackCondition();
+        finishConditionCanAttack.inverted = true;
+        finishConditionCanAttack.character = gameObject;
+        finishConditionCanAttack.player = player;
+
         Transition patrolToFollow = new Transition();
         patrolToFollow.condition = conditionLessDistance;
         patrolToFollow.destinationState = follow;
@@ -51,8 +64,19 @@ public class Enemy : MonoBehaviour
         followToPatrol.condition = conditionMoreDistance;
         followToPatrol.destinationState = patrol;
 
+        Transition followToAttack = new Transition();
+        followToAttack.condition = conditionCanAttack;
+        followToAttack.destinationState = attack;
+
+        Transition attackToFollow = new Transition();
+        attackToFollow.condition = finishConditionCanAttack;
+        attackToFollow.destinationState = follow;
+
+
         patrol.AddTransition(patrolToFollow);
         follow.AddTransition(followToPatrol);
+        follow.AddTransition(followToAttack);
+        attack.AddTransition(attackToFollow);
     }
 
 }
