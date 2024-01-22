@@ -13,14 +13,17 @@ public class FollowState : State
     private float stopDistance = 2.0f; //Debe ser menor a la distancia de algun otro estado siguiente como ataque
     public override void DoAction()
     {
-        if (Vector3.Distance(character.transform.position, player.transform.position) <= stopDistance)
+        if (player != null)
         {
-            agent.isStopped = true;
-        }
-        else
-        {
-            agent.isStopped = false;
-            agent.SetDestination(player.transform.position);
+            if (Vector3.Distance(character.transform.position, player.transform.position) <= stopDistance)
+            {
+                agent.isStopped = true;
+            }
+            else
+            {
+                agent.isStopped = false;
+                agent.SetDestination(player.transform.position);
+            }
         }
 
         

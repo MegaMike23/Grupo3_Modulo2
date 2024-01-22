@@ -9,7 +9,11 @@ public class LessDistanceCondition : Condition
 
     public override bool Check()
     {
-       return (Vector3.Distance(character.transform.position, player.transform.position) <= minDistancePlayer);
+        if (player != null)
+        {
+            return (Vector3.Distance(character.transform.position, player.transform.position) <= minDistancePlayer);
+        }
+        return false;
 
     }
 }

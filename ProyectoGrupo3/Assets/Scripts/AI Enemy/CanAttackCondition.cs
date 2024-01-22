@@ -9,6 +9,8 @@ public class CanAttackCondition : Condition
 
     public override bool Check()
     {
+        if (player == null) return false;
+
         return (Vector3.Distance(character.transform.position, player.transform.position) <= minDistancePlayer 
             && !character.GetComponent<Enemy>().isAttacking);
     }

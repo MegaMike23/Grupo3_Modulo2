@@ -5,9 +5,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using MoreMountains;
 using MoreMountains.Feedbacks;
+using System;
 
 public class Enemy : MonoBehaviour
 {
+    public static EventHandler OnAnyEnemyAttackSuccess;
+
     private NavMeshAgent agent;
     private StateMachineFlexible stateMachineEnemy;
 
@@ -27,6 +30,10 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         stateMachineEnemy = GetComponent<StateMachineFlexible>();
         player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            Debug.Log("PLAYER IS NOT NULL");
+        }
         sphereAttack = GetComponent<SphereCollider>();
 
         PatrolState patrol = new PatrolState();
@@ -101,6 +108,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator DamagePlayer()
     {
+        OnAnyEnemyAttackSuccess?.Invoke(this, EventArgs.Empty);
+
         Time.timeScale = 0.25f;
 
         //yield on a new YieldInstruction that waits for 5 seconds.

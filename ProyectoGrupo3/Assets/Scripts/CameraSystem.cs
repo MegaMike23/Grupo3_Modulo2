@@ -36,7 +36,10 @@ public class CameraSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.position + offsetVector;
+        if (player != null)
+        {
+            transform.position = player.position + offsetVector;
+        }
         HandleCameraRotation();
         HandleCameraZoom();
     }
