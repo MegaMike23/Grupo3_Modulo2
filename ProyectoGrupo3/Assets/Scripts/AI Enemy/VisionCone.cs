@@ -68,27 +68,11 @@ public class VisionCone : MonoBehaviour
 
                 if (!enemyParent.GetIsPlayerDetected())
                 {
-                    Debug.Log("VAMOS");
                     enemyParent.SetIsPlayerDetected(true);
-                    transform.GetComponent<MeshRenderer>().material = VisionConeDetectMaterial;
+                    DetectMaterialVisualCone(true);
                 }
                 
             }
-            
-            /*else
-            {
-                //No detect PLAYER
-                Debug.Log("ADIOS");
-
-                if (enemyParent.GetIsPlayerDetected())
-                {
-                    Debug.Log("TETE");
-                    enemyParent.SetIsPlayerDetected(false);
-                    transform.GetComponent<MeshRenderer>().material = VisionConeMaterial;
-                }
-
-            }*/
-
 
             Currentangle += angleIcrement;
         }
@@ -103,4 +87,17 @@ public class VisionCone : MonoBehaviour
         VisionConeMesh.triangles = triangles;
         MeshFilter_.mesh = VisionConeMesh;
     }
+
+    public void DetectMaterialVisualCone(bool detected)
+    {
+        if (detected)
+        {
+            transform.GetComponent<MeshRenderer>().material = VisionConeDetectMaterial;
+        }
+        else
+        {
+            transform.GetComponent<MeshRenderer>().material = VisionConeMaterial;
+        }
+    }
+
 }

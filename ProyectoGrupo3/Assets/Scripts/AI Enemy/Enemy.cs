@@ -56,9 +56,10 @@ public class Enemy : MonoBehaviour
         DetectedCondition conditionDetectPlayer = new DetectedCondition();
         conditionDetectPlayer.character = gameObject;
 
-        DetectedCondition conditionUNDETECTPlayer = new DetectedCondition();
-        conditionUNDETECTPlayer.inverted = true;
-        conditionUNDETECTPlayer.character = gameObject;
+        MoreDistanceCondition conditionOutPlayer = new MoreDistanceCondition();
+        conditionOutPlayer.character = gameObject;
+        conditionOutPlayer.player = player;
+        conditionOutPlayer.nonDetectPlayerDistance = visionConeEnemy.VisionRange;
 
         CanAttackCondition conditionCanAttack = new CanAttackCondition();
         conditionCanAttack.character = gameObject;
@@ -74,7 +75,7 @@ public class Enemy : MonoBehaviour
         patrolToFollow.destinationState = follow;
 
         Transition followToPatrol = new Transition();
-        followToPatrol.condition = conditionUNDETECTPlayer;
+        followToPatrol.condition = conditionOutPlayer;
         followToPatrol.destinationState = patrol;
 
         Transition followToAttack = new Transition();

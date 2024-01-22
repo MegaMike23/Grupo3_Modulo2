@@ -95,6 +95,7 @@ MonoBehaviour:
   player: {fileID: 0}
   minDistancePlayer: 10
   isAttacking: 0
+  visionConeEnemy: {fileID: 2966123197376856945}
 --- !u!135 &243771339115095175
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform ragdollPrefab;
     [SerializeField] private Transform originalRootBoneTransform;
 
+    private bool isShadow = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,8 @@ public class Player : MonoBehaviour
         Debug.Log("Fuera de Shadow");
         meshNinja.GetComponent<Renderer>().material = ninjaMat;
         gameObject.layer = playerLayerMaskNum;
+
+        isShadow = false;
     }
 
     private void ShadowBehaviour_OnAnyShadowTriggerInside(object sender, EventArgs e)
@@ -55,11 +59,12 @@ public class Player : MonoBehaviour
         Debug.Log("Dentro de Shadow");
         meshNinja.GetComponent<Renderer>().material = shadowMat;
         gameObject.layer = shadowLayerMaskNum;
+
+        isShadow = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool GetIsShadow()
     {
-        
+        return isShadow;
     }
 }
