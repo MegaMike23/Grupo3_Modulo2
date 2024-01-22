@@ -5,7 +5,7 @@ using UnityEngine;
 public class CanAttackCondition : Condition
 {
     public GameObject character, player;
-    public float minDistancePlayer = 1.5f;
+    public float minDistancePlayer = 2.1f;
 
     public override bool Check()
     {

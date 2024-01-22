@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         else
         {
             SaveLives(lives);
-            SceneManager.LoadScene("GAME");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Que vuelva a iniciar la misma escena en la que estaba
         }
 
         OnChangeLives?.Invoke(this, lives);

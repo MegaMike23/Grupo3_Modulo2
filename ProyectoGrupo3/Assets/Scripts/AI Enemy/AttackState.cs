@@ -11,14 +11,21 @@ public class AttackState : State
     {
         character.GetComponent<Enemy>().isAttacking = true;
 
-        animator.SetBool("Attack", true);
+        
 
-        if (character.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
-            character.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) //Ha finalizado Attack
+        /*if (character.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
+            character.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) 
         {
+            Debug.Log("HEY1");
             character.GetComponent<Enemy>().isAttacking = false;
             animator.SetBool("Attack", false);
+        }*/
+
+        if (!character.GetComponent<Enemy>().AnimatorIsPlaying("Attack"))
+        {
+            animator.SetBool("Attack", true);
         }
+        
     }
 
     

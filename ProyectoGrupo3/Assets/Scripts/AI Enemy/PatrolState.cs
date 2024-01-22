@@ -31,7 +31,7 @@ public class PatrolState : State
         }
 
         agent.SetDestination(targetsPatrol[indexNextPoint].position);
-        
+        animator.SetBool("Attack", false);
         animator.SetBool("Follow", false);
         animator.SetBool("Patrol", true);
 
