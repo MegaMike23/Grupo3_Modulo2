@@ -21,8 +21,9 @@ public class Enemy : MonoBehaviour
     public float minDistancePlayer;
 
     public bool isAttacking = false;
-    private SphereCollider sphereAttack;
-    [SerializeField] private MMF_Player attackSuccessFeedback;
+    private bool isPlayerDetected = false;
+
+    public VisionCone visionConeEnemy;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,6 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("PLAYER IS NOT NULL");
         }
-        sphereAttack = GetComponent<SphereCollider>();
 
         PatrolState patrol = new PatrolState();
         stateMachineEnemy.actualState = patrol;
@@ -53,16 +53,12 @@ public class Enemy : MonoBehaviour
         attack.character = gameObject;
         attack.animator = animator;
 
-        LessDistanceCondition conditionLessDistance = new LessDistanceCondition();
-        conditionLessDistance.character = gameObject;
-        conditionLessDistance.player = player;
-        conditionLessDistance.minDistancePlayer = minDistancePlayer;
+        DetectedCondition conditionDetectPlayer = new DetectedCondition();
+        conditionDetectPlayer.character = gameObject;
 
-        LessDistanceCondition conditionMoreDistance = new LessDistanceCondition();
-        conditionMoreDistance.inverted = true;
-        conditionMoreDistance.character = gameObject;
-        conditionMoreDistance.player = player;
-        conditionMoreDistance.minDistancePlayer = minDistancePlayer;
+        DetectedCondition conditionUNDETECTPlayer = new DetectedCondition();
+        conditionUNDETECTPlayer.inverted = true;
+        conditionUNDETECTPlayer.character = gameObject;
 
         CanAttackCondition conditionCanAttack = new CanAttackCondition();
         conditionCanAttack.character = gameObject;
@@ -74,11 +70,11 @@ public class Enemy : MonoBehaviour
         finishConditionCanAttack.player = player;
 
         Transition patrolToFollow = new Transition();
-        patrolToFollow.condition = conditionLessDistance;
+        patrolToFollow.condition = conditionDetectPlayer;
         patrolToFollow.destinationState = follow;
 
         Transition followToPatrol = new Transition();
-        followToPatrol.condition = conditionMoreDistance;
+        followToPatrol.condition = conditionUNDETECTPlayer;
         followToPatrol.destinationState = patrol;
 
         Transition followToAttack = new Transition();
@@ -102,7 +98,6 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("DAÑO A JUGADOR");
             StartCoroutine("DamagePlayer");
-            //attackSuccessFeedback.PlayFeedbacks();
         }
     }
 
@@ -130,6 +125,16 @@ public class Enemy : MonoBehaviour
     public bool AnimatorIsPlaying(string stateName)
     {
         return AnimatorIsPlaying() && animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+    }
+
+    public bool GetIsPlayerDetected()
+    {
+        return isPlayerDetected;
+    }
+
+    public void SetIsPlayerDetected(bool playerDetected)
+    {
+        isPlayerDetected = playerDetected;
     }
 
 }
