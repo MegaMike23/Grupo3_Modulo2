@@ -29,14 +29,18 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isJumpingAnimation;
 
+    private bool cayendo = false;
+    [SerializeField] private ParticleSystem polvoSalto;
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         characterSpeed = sneekySpeedMax;
+ 
     }
-
+  
     // Update is called once per frame
     void Update()
     {
@@ -127,6 +131,11 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y = fallVelocity;
         }
 
+        if(characterController.velocity.y < 0 && !cayendo)
+        {
+            cayendo = true;
+        }
+
         //Saltar
 
         if (characterController.isGrounded)
@@ -136,11 +145,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 //Animación saltar aterrizaje si ha saltado previamente
                 StartCoroutine(LandAnimation());
+
+                if (cayendo)
+                {
+                    polvoSalto.Play();
+                    cayendo = false;
+                }
             }
 
             isJumping = false;
 
-            
 
         }
 
