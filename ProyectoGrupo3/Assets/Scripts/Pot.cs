@@ -18,9 +18,11 @@ public class Pot : MonoBehaviour
             Destroy(gameObject);
         }
 
+        /*
         if (GameManager.Instance != null && GameManager.Instance.GetPot() == 3)
         {
             SceneManager.LoadScene("INTRO");
         }
+        */
     }
 }
