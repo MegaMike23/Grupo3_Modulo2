@@ -7,11 +7,10 @@ public class Orbe : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        PlayerMovement ninjaCharacter = gameObject.GetComponent<PlayerMovement>();
-
-        if (ninjaCharacter != null && GameManager.Instance != null)
+        if(other.GetComponent<PlayerMovement>()!= null)
         {
             SceneManager.LoadScene("INTRO");
         }
+        
     }
 }
