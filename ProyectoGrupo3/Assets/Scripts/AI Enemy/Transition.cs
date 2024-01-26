@@ -9,6 +9,6 @@ public class Transition
 
     public bool CheckCondition()
     {
-        return condition.Check();
+        return condition.CheckInverted();
     }
 }
