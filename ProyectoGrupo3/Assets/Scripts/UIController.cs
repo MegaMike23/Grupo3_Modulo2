@@ -11,6 +11,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textNumberPots;
     [SerializeField] private Image[] heartSprites;
     [SerializeField] private GameObject cuadroPausa;//Menu de pausa en el canvas
+    [SerializeField] private GameObject botonConfig;//Boton de configuración
+    [SerializeField] private GameObject botonPlay;//Boton de jugar
 
     private void Start()
     {
@@ -76,6 +78,8 @@ public class UIController : MonoBehaviour
     private void TogglePauseUI(bool isPaused)
     {
         cuadroPausa.SetActive(isPaused);
+        botonConfig.SetActive(false);
+        botonPlay.SetActive(true);
     }
 
 }
