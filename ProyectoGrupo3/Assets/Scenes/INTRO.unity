@@ -1727,8 +1727,6 @@ MonoBehaviour:
   textNumberPots: {fileID: 0}
   heartSprites: []
   cuadroPausa: {fileID: 408931197}
-  botonConfig: {fileID: 554652458}
-  botonPlay: {fileID: 756468139}
 --- !u!114 &588373473
 MonoBehaviour:
   m_ObjectHideFlags: 0
